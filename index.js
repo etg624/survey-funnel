@@ -79,9 +79,9 @@
       imgUrl: 'https://d3e1y4kxkqljcb.cloudfront.net/survey_us_d/cbdspray.png',
       title: '100% Pure CBD Oil',
       description: 'Relieve pain and inflammation, and reduce anxiety! Legal in 50 states.',
-      normalPrice: '$100.00',
-      todaysPrice: '$0.00',
-      postage: '$4.95'
+      normalPrice: '100.00',
+      todaysPrice: '0.00',
+      postage: '4.95'
     }
   ]
 
@@ -121,15 +121,21 @@
       const output = [];
       output.push(`
           <div class="offer-card"> 
-            <img src=${offer.imgUrl} class="offer-image"/>
-            <p class="offer-title">${offer.title}</p>
-            <p class="offer-description">${offer.description}</p>
-            <p class="offer-normal-price">${offer.normalPrice}</p>
-            <p class="offer-todays-price">${offer.todaysPrice}</p>
-            <p class="offer-postage">${offer.postage}</p>
+            <div class="image-container">
+              <img src=${offer.imgUrl} class="offer-image"/>
+            </div>
+            <div class="title-desc">
+              <p class="offer-title">${offer.title}</p>
+              <p class="offer-description">${offer.description}</p>
+            </div>
+          <div class="prices">
+            <p class="offer-normal-price">$${offer.normalPrice}</p>
+            <p class="offer-todays-price">$${offer.todaysPrice}</p>
+            <p class="offer-postage">$${offer.postage}</p>
+          </div>
           </div>
         `)
-      offerWallMain.innerHTML = output.join('')
+      offerWall.innerHTML = output.join('')
     })
 
   }
@@ -140,7 +146,7 @@
     currentSlide = n;
 
     if (currentSlide !== slides.length - 1) {
-      offerWallMain.innerHTML = ''
+      offerWallMain.style.opacity = '0'
     }
 
     if (currentSlide === 0) {
@@ -152,6 +158,7 @@
 
     if (currentSlide === slides.length - 1) {
       surveyMain.innerHTML = ''
+      offerWallMain.style.opacity = '1'
       buildOfferWall()
     }
   }
