@@ -15,24 +15,44 @@ header {
   margin-top: 5px;
 }
 
+.site-title {
+  display: flex;
+}
+
+.check-img {
+  height: 30px;
+}
+
 header h1 {
   font-size: 35px;
   padding: 7px;
 }
 
-header .date {
+header .date-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 10px;
   font-weight: 800;
   background-color: #f2f2f2;
   width: 100%;
   text-align: center;
-  padding: 7px;
+  
   margin-top: 5px;
+
+}
+
+.date-image {
+  height: 15px;
+  margin: 6px;
 }
 
 .bold {
+  font-size: 16px;
   font-weight: 700;
 }
+
+/* -----MODAL----- */
 
 .modal {
   display: none;
@@ -109,13 +129,33 @@ header .date {
  background-color: rgb(47, 88, 126)
 }
 
+/* -----SURVEY----- */
+
+#survey {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  text-align: center;
+  position: relative;
+}
+
 .congrats-section {
   margin: 15px auto;
   display: flex;
-  flex-direction: column;
   position: relative;
   border-bottom: 1px solid rgb(66, 125, 181);
   width: 55%;
+}
+
+.operator {
+  height: 100px;
+}
+
+.operator-text {
+  display: flex;
+  flex-direction: column;
 }
 
 .congrats-text {
@@ -136,15 +176,7 @@ header .date {
   padding: 3px;
 }
 
-#survey {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  width: 50%;
-  height: 50%;
-  text-align: center;
-  position: relative;
-}
+
 
 .question-number {
   font-style: italic;
@@ -189,4 +221,87 @@ header .date {
 
 .choice:hover {
   background-color: rgb(55, 100, 143)
+}
+
+
+/* -----OFFER WALL-----*/
+
+.offer-card {
+  display: flex;
+  border: 0.5px solid rgb(218, 218, 218);
+  max-width: 60%;
+  margin: 20px auto;
+  position: relative;
+}
+.offer-image {
+  width: 20%;
+  height: 30%;
+  margin: 10px;
+  border: 1px solid rgb(218, 218, 218);
+}
+
+h4 {
+  font-size: 16px;
+  color: #444;
+}
+
+.offer-card {
+  color: #444;
+  font-size: 12px;
+}
+
+.desc-prices {
+  padding: 5px;
+  width: 100%
+}
+
+.offer-title {
+  margin-bottom: 5px;
+}
+
+.offer-desc {
+  margin: 10px 0;
+  color: #b1b1b1;
+  font-style: italic;
+  width: 100%;
+  font-size: 11px;
+}
+
+.price {
+  margin: 7px 0;
+}
+
+.green {
+  color: #008000
+}
+
+.redeem {
+  align-self: flex-end;
+  width: 60%;
+  margin: 20px 10px;
+}
+
+.redeem-button {
+  background-color: rgb(66, 125, 165);
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border-radius: 3px;  
+  border: 1px solid #444;
+}
+
+.redeem-button:hover {
+  cursor: pointer;
+  background-color: rgb(47, 88, 126)
+}
+
+.claimed {
+  margin-top: 5px;
+  color: #336f25;
+  text-align: center;
+  font-size: 10px;
+}
+
+.line-through {
+  text-decoration: line-through;
 }

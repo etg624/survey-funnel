@@ -81,10 +81,40 @@
       description: 'Relieve pain and inflammation, and reduce anxiety! Legal in 50 states.',
       normalPrice: '100.00',
       todaysPrice: '0.00',
-      postage: '4.95'
-    }
+      postage: '4.95',
+      qtyLeft: '1',
+      usersClaimed: '7'
+    },
+    {
+      imgUrl: 'https://d3e1y4kxkqljcb.cloudfront.net/survey_us_d/skincare_new_us.png',
+      title: 'Celebrity Skincare kit',
+      description: 'Better than botox! Get Hollywood\'s best kept beauty secret',
+      normalPrice: '249.95',
+      todaysPrice: '0.00',
+      postage: '1.99',
+      qtyLeft: '2',
+      usersClaimed: '23'
+    },
+    {
+      imgUrl: 'https://d3e1y4kxkqljcb.cloudfront.net/survey_us_d/flight_img.png',
+      title: 'Pro Tactical LED Flashlight',
+      description: 'The world\'s brightest, most powerful &amp; reliable tactical LED flashlight! Yours FREE!',
+      normalPrice: '249.95',
+      todaysPrice: '0.00',
+      postage: '1.99',
+      qtyLeft: '2',
+      usersClaimed: '23'
+    },
   ]
 
+
+  const comments = [
+    {
+      name: 'Mary Beal',
+      comment: 'Amazing!!!!!',
+      userImage: 'https://d3e1y4kxkqljcb.cloudfront.net/survey_us_d/css_sprites_comm.png'
+    }
+  ]
 
   function buildSurvey() {
     // store the html in an array to join later.
@@ -117,50 +147,75 @@
   }
 
   function buildOfferWall() {
+    const output = [];
     offers.forEach(offer => {
-      const output = [];
+      const { imgUrl, title, description, postage, normalPrice, todaysPrice, qtyLeft, usersClaimed } = offer
       output.push(`
           <div class="offer-card"> 
-            <div class="image-container">
-              <img src=${offer.imgUrl} class="offer-image"/>
-            </div>
-            <div class="title-desc">
-              <p class="offer-title">${offer.title}</p>
-              <p class="offer-description">${offer.description}</p>
-            </div>
-          <div class="prices">
-            <p class="offer-normal-price">$${offer.normalPrice}</p>
-            <p class="offer-todays-price">$${offer.todaysPrice}</p>
-            <p class="offer-postage">$${offer.postage}</p>
+              <img src=${imgUrl} class="offer-image"/>
+          <div class="desc-prices">
+         
+            <h4 class="offer-title bold">${title}</h4>
+            <p class="offer-desc">${description}</p>
+        
+            <p class="offer-normal price">
+            Normal Price: <span class="line-through">$${normalPrice}</span>
+            </p>
+            <p class="offer-todays price">
+            <span class="bold">Today's Price:</span> <span class="bold green">$${todaysPrice}!</span>
+            </p>
+            <p class="offer-postage price">
+            Postage: $${postage}
+            </p>
+            
+            <p class="price"> Qty Left: ${qtyLeft} </p>
+          </div>
+          <div class="redeem">
+            <button class="redeem-button bold">Get My Reward</button>
+            <p class="claimed">${usersClaimed} users have chosen this reward</p>
+          
           </div>
           </div>
         `)
       offerWall.innerHTML = output.join('')
     })
+  }
+
+  function buildCommentSection() {
 
   }
 
-  function showSlide(n) {
-    slides[currentSlide].classList.remove('active');
-    slides[n].classList.add('active');
-    currentSlide = n;
+  // function showSlide(n) {
+  //   slides[currentSlide].classList.remove('active');
+  //   slides[n].classList.add('active');
+  //   currentSlide = n;
 
-    if (currentSlide !== slides.length - 1) {
-      offerWallMain.style.opacity = '0'
-    }
+  // if (currentSlide !== slides.length - 1) {
+  //   offerWallMain.style.opacity = '0'
+  // }
 
-    if (currentSlide === 0) {
-      modal.style.display = 'block';
-      closeModal.addEventListener('click', () => {
-        modal.style.display = 'none';
-      });
-    }
+  // if (currentSlide === 0) {
+  //   modal.style.display = 'block';
+  //   closeModal.addEventListener('click', () => {
+  //     modal.style.display = 'none';
+  //   });
+  // }
 
-    if (currentSlide === slides.length - 1) {
-      surveyMain.innerHTML = ''
-      offerWallMain.style.opacity = '1'
-      buildOfferWall()
-    }
+  // if (currentSlide === slides.length - 1) {
+  //   surveyMain.innerHTML = ''
+  //   offerWallMain.style.opacity = '1'
+  //   buildOfferWall()
+  // }
+  // }
+
+  function imageClickAlert(title, postage) {
+    alert(`
+      Congratulations! ${title} has been reserved for you! 
+
+      You have five minutes before we could offer it to the next qualified visitor!
+
+      On the next page, read the offer details, enter your postage address and pay a small postage fee($${postage})!
+    `)
   }
 
   function showNextQuestion(e) {
@@ -169,11 +224,17 @@
   }
 
   const surveyContainer = document.getElementById('survey');
-  buildSurvey();
+  // buildSurvey();
+  //TODO Move these constants down after offer wall is done
+  const offerWall = document.querySelector('.offer-wall');
+  const surveyMain = document.querySelector('.survey-main')
+  surveyMain.style.display = 'none'
+  buildOfferWall()
 
-  surveyContainer.addEventListener('click', e => showNextQuestion);
+  surveyContainer.addEventListener('click', () => showNextQuestion);
 
-  const dateContainer = document.querySelector('.date');
+  const date = document.querySelectorAll('.date');
+
   const dateObj = new Date();
   const months = [
     'January',
@@ -192,17 +253,20 @@
 
   const day = dateObj.getUTCDate();
   const year = dateObj.getUTCFullYear();
-  dateContainer.innerHTML = `${months[dateObj.getMonth()]} ${day}, ${year}`;
   const modal = document.querySelector('.modal');
   const slides = document.querySelectorAll('.slide');
-  const surveyMain = document.querySelector('.survey-main')
   const choices = document.querySelectorAll('.choice');
   const closeModal = document.querySelector('.modal-close');
   const offerWallMain = document.querySelector('.offer-wall-main');
-  const offerWall = document.querySelector('.offer-wall');
+  const commentSection = document.querySelector('.comments')
+
+  date.forEach(div => {
+    div.innerHTML = `${months[dateObj.getMonth()]} ${day}, ${year}`;
+  })
+
   choices.forEach(choice => {
     choice.addEventListener('click', showNextQuestion);
   });
   let currentSlide = 0;
-  showSlide(0);
+  // showSlide(0);
 })();
