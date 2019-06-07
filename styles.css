@@ -47,6 +47,28 @@ header .date-container {
   margin: 6px;
 }
 
+.main-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-links img {
+  width: 20px;
+  margin: 10px;
+}
+
+.lock {
+  width: 40px;
+}
+
+.fine-print {
+  margin: 10px;
+  font-size: 8px;
+  width: 50%;
+  color:#b1b1b1;
+}
+
 .bold {
   font-size: 16px;
   font-weight: 700;
