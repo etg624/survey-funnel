@@ -74,6 +74,18 @@
     }
   ];
 
+  const offers = [
+    {
+      imgUrl: 'https://d3e1y4kxkqljcb.cloudfront.net/survey_us_d/cbdspray.png',
+      title: '100% Pure CBD Oil',
+      description: 'Relieve pain and inflammation, and reduce anxiety! Legal in 50 states.',
+      normalPrice: '$100.00',
+      todaysPrice: '$0.00',
+      postage: '$4.95'
+    }
+  ]
+
+
   function buildSurvey() {
     // store the html in an array to join later.
     const output = [];
@@ -104,10 +116,32 @@
     surveyContainer.innerHTML = output.join('');
   }
 
+  function buildOfferWall() {
+    offers.forEach(offer => {
+      const output = [];
+      output.push(`
+          <div class="offer-card"> 
+            <img src=${offer.imgUrl} class="offer-image"/>
+            <p class="offer-title">${offer.title}</p>
+            <p class="offer-description">${offer.description}</p>
+            <p class="offer-normal-price">${offer.normalPrice}</p>
+            <p class="offer-todays-price">${offer.todaysPrice}</p>
+            <p class="offer-postage">${offer.postage}</p>
+          </div>
+        `)
+      offerWallMain.innerHTML = output.join('')
+    })
+
+  }
+
   function showSlide(n) {
     slides[currentSlide].classList.remove('active');
     slides[n].classList.add('active');
     currentSlide = n;
+
+    if (currentSlide !== slides.length - 1) {
+      offerWallMain.innerHTML = ''
+    }
 
     if (currentSlide === 0) {
       modal.style.display = 'block';
@@ -117,7 +151,8 @@
     }
 
     if (currentSlide === slides.length - 1) {
-      //TODO show loader!
+      surveyMain.innerHTML = ''
+      buildOfferWall()
     }
   }
 
@@ -153,8 +188,11 @@
   dateContainer.innerHTML = `${months[dateObj.getMonth()]} ${day}, ${year}`;
   const modal = document.querySelector('.modal');
   const slides = document.querySelectorAll('.slide');
+  const surveyMain = document.querySelector('.survey-main')
   const choices = document.querySelectorAll('.choice');
   const closeModal = document.querySelector('.modal-close');
+  const offerWallMain = document.querySelector('.offer-wall-main');
+  const offerWall = document.querySelector('.offer-wall');
   choices.forEach(choice => {
     choice.addEventListener('click', showNextQuestion);
   });
