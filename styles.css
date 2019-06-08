@@ -21,7 +21,7 @@ h1 {
 }
 
 .check-img {
-  height: 30px;
+  height: 45px;
 }
 
 .main-header h1 {
@@ -193,7 +193,7 @@ h1 {
 
 .congrats-text {
   font-weight: 700;
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 7px;
 }
 
@@ -213,14 +213,14 @@ h1 {
 
 .question-number {
   font-style: italic;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 600;
   margin: 10px;
 }
 
 .question {
   font-weight: 600;
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 35px;
 }
 
