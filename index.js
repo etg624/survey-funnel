@@ -258,7 +258,7 @@
   const choices = document.querySelectorAll('.choice');
   const closeModal = document.querySelector('.modal-close');
   const offerWallMain = document.querySelector('.offer-wall-main');
-  const commentSection = document.querySelector('.comments')
+  const commentSection = document.querySelector('.comment-section')
 
   date.forEach(div => {
     div.innerHTML = `${months[dateObj.getMonth()]} ${day}, ${year}`;
