@@ -56,17 +56,17 @@ h1 {
 }
 
 .social-links img {
-  width: 20px;
+  width: 25px;
   margin: 10px;
 }
 
 .lock {
-  width: 40px;
+  width: 45px;
 }
 
 .fine-print {
-  margin: 10px;
-  font-size: 8px;
+  margin: 13px;
+  font-size: 10px;
   width: 50%;
   color:#b1b1b1;
 }
@@ -120,7 +120,7 @@ h1 {
   
     line-height: 22px;
     margin-bottom: 7px;
-    font-size: 13px;
+    font-size: 17px;
     text-align: center;
   
 }
@@ -134,7 +134,7 @@ h1 {
   justify-content: center;
   text-align: center;
   background-color: #f2f2f2;
-  height: 50px;
+  height: 80px;
   border-radius: 0 0 6px 6px ;
 }
 
@@ -144,8 +144,9 @@ h1 {
   border-radius: 4px;
   background-color: rgb(66, 125, 165);
   color: white;
-  font-size: 14px; 
+  font-size: 16px; 
   cursor: pointer;
+  font-weight: 700;
 }
 
 .modal-close:hover {
@@ -230,14 +231,14 @@ h1 {
 .choice {
   display: flex;
   flex-direction: column;
-  margin: 10px auto;
-  width: 50%;
+  margin: 6px auto;
   align-items: center;
-  padding: 5px 30px;
+  padding: 16px 35px;
   border-radius: 4px;
   background-color: rgb(66, 125, 165);
   min-width: 300px;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 400;
   color: white;
   cursor: pointer;
   border: 1px solid rgb(36, 35, 35);

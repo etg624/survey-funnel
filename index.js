@@ -185,28 +185,28 @@
 
   }
 
-  // function showSlide(n) {
-  //   slides[currentSlide].classList.remove('active');
-  //   slides[n].classList.add('active');
-  //   currentSlide = n;
+  function showSlide(n) {
+    slides[currentSlide].classList.remove('active');
+    slides[n].classList.add('active');
+    currentSlide = n;
 
-  // if (currentSlide !== slides.length - 1) {
-  //   offerWallMain.style.opacity = '0'
-  // }
+    if (currentSlide !== slides.length - 1) {
+      offerWallMain.style.opacity = '0'
+    }
 
-  // if (currentSlide === 0) {
-  //   modal.style.display = 'block';
-  //   closeModal.addEventListener('click', () => {
-  //     modal.style.display = 'none';
-  //   });
-  // }
+    if (currentSlide === 0) {
+      modal.style.display = 'block';
+      closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+      });
+    }
 
-  // if (currentSlide === slides.length - 1) {
-  //   surveyMain.innerHTML = ''
-  //   offerWallMain.style.opacity = '1'
-  //   buildOfferWall()
-  // }
-  // }
+    if (currentSlide === slides.length - 1) {
+      surveyMain.innerHTML = ''
+      offerWallMain.style.opacity = '1'
+      buildOfferWall()
+    }
+  }
 
   function imageClickAlert(title, postage) {
     alert(`
@@ -224,12 +224,10 @@
   }
 
   const surveyContainer = document.getElementById('survey');
-  // buildSurvey();
+  buildSurvey();
   //TODO Move these constants down after offer wall is done
-  const offerWall = document.querySelector('.offer-wall');
   const surveyMain = document.querySelector('.survey-main')
-  surveyMain.style.display = 'none'
-  buildOfferWall()
+
 
   surveyContainer.addEventListener('click', () => showNextQuestion);
 
@@ -259,6 +257,8 @@
   const closeModal = document.querySelector('.modal-close');
   const offerWallMain = document.querySelector('.offer-wall-main');
   const commentSection = document.querySelector('.comment-section')
+  const offerWall = document.querySelector('.offer-wall');
+
 
   date.forEach(div => {
     div.innerHTML = `${months[dateObj.getMonth()]} ${day}, ${year}`;
@@ -268,5 +268,5 @@
     choice.addEventListener('click', showNextQuestion);
   });
   let currentSlide = 0;
-  // showSlide(0);
+  showSlide(0);
 })();
