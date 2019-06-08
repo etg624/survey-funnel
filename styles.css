@@ -71,6 +71,14 @@ h1 {
   color:#b1b1b1;
 }
 
+.survey-footer {
+  position: absolute;
+  bottom: -300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .bold {
   font-weight: 700;
 }
