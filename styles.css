@@ -259,11 +259,17 @@ h1 {
 
 /* -----OFFER WALL-----*/
 
+.thank-you-section {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
 .offer-card {
   display: flex;
   border: 0.5px solid rgb(218, 218, 218);
   max-width: 60%;
-  margin: 20px auto;
+  margin: 0px auto 20px auto;
   position: relative;
 }
 .offer-image {
