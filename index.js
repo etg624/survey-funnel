@@ -135,35 +135,35 @@
     },
   ]
 
-  // function buildSurvey() {
-  //   // store the html in an array to join later.
-  //   const output = [];
-  //   const selectedAnswers = [];
-  //   questions.forEach((question, questionNumber) => {
-  //     const buttons = [];
+  function buildSurvey() {
+    // store the html in an array to join later.
+    const output = [];
+    const selectedAnswers = [];
+    questions.forEach((question, questionNumber) => {
+      const buttons = [];
 
-  //     for (let choice of question.choices) {
-  //       buttons.push(
-  //         `
-  //     <button class="choice">
-  //        ${choice}
-  //     </button>`
-  //       );
-  //     }
+      for (let choice of question.choices) {
+        buttons.push(
+          `
+      <button class="choice">
+         ${choice}
+      </button>`
+        );
+      }
 
-  //     output.push(`
-  //       <div class="slide">
-  //       <p class="question-number"> Question
-  //         ${questionNumber + 1} of ${questions.length}
-  //         </p>
-  //         <h2 class="question">${question.question}</h2>
-  //         <div class="choices">${buttons.join('')}</div>
-  //       </div> 
-  //     `);
-  //   });
+      output.push(`
+        <div class="slide">
+        <p class="question-number"> Question
+          ${questionNumber + 1} of ${questions.length}
+          </p>
+          <h2 class="question">${question.question}</h2>
+          <div class="choices">${buttons.join('')}</div>
+        </div> 
+      `);
+    });
 
-  //   surveyContainer.innerHTML = output.join('');
-  // }
+    surveyContainer.innerHTML = output.join('');
+  }
 
   function buildOfferWall() {
     const output = [];
@@ -220,7 +220,6 @@
   function buildCommentSection() {
     const output = []
     let li;
-    let html;
     comments.forEach(comment => {
       const { name, content, userImage, date } = comment
       li = document.createElement('li')
@@ -241,28 +240,29 @@
     commentList.appendChild(li)
   }
 
-  // function showSlide(n) {
-  //   slides[currentSlide].classList.remove('active');
-  //   slides[n].classList.add('active');
-  //   currentSlide = n;
+  function showSlide(n) {
+    slides[currentSlide].classList.remove('active');
+    slides[n].classList.add('active');
+    currentSlide = n;
 
-  //   if (currentSlide !== slides.length - 1) {
-  //     offerWallMain.style.opacity = '0'
-  //   }
+    if (currentSlide !== slides.length - 1) {
+      offerWallMain.style.opacity = '0'
+    }
 
-  //   if (currentSlide === 0) {
-  //     modal.style.display = 'block';
-  //     closeModal.addEventListener('click', () => {
-  //       modal.style.display = 'none';
-  //     });
-  //   }
+    if (currentSlide === 0) {
+      modal.style.display = 'block';
+      closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+      });
+    }
 
-  //   if (currentSlide === slides.length - 1) {
-  //     surveyMain.innerHTML = ''
-  //     offerWallMain.style.opacity = '1'
-  //     buildOfferWall()
-  //   }
-  // }
+    if (currentSlide === slides.length - 1) {
+      surveyMain.innerHTML = ''
+      offerWallMain.style.opacity = '1'
+      buildOfferWall()
+      buildCommentSection()
+    }
+  }
 
   function imageClickAlert(title, postage) {
     alert(`
@@ -280,15 +280,15 @@
   }
 
   const surveyContainer = document.getElementById('survey');
-  // buildSurvey();
+  buildSurvey();
   //TODO Move these constants down after offer wall is done
-  const surveyMain = document.querySelector('.survey-main')
-  surveyMain.style.display = 'none'
-  const offerWall = document.querySelector('.offer-wall');
-  const comment = document.querySelector('.comment')
-  const commentList = document.querySelector('.comment-list')
-  buildOfferWall()
-  buildCommentSection()
+  // const surveyMain = document.querySelector('.survey-main')
+  // surveyMain.style.display = 'none'
+  // const offerWall = document.querySelector('.offer-wall');
+  // const comment = document.querySelector('.comment')
+  // const commentList = document.querySelector('.comment-list')
+  // buildOfferWall()
+  // buildCommentSection()
 
 
   surveyContainer.addEventListener('click', () => showNextQuestion);
@@ -318,9 +318,9 @@
   const choices = document.querySelectorAll('.choice');
   const closeModal = document.querySelector('.modal-close');
   const offerWallMain = document.querySelector('.offer-wall-main');
-  const commentSection = document.querySelector('.comment-section')
-
-  // const offerWall = document.querySelector('.offer-wall');
+  const commentList = document.querySelector('.comment-list')
+  const surveyMain = document.querySelector('.survey-main')
+  const offerWall = document.querySelector('.offer-wall');
 
 
   date.forEach(div => {
@@ -331,5 +331,5 @@
     choice.addEventListener('click', showNextQuestion);
   });
   let currentSlide = 0;
-  // showSlide(0);
+  showSlide(0);
 })();
