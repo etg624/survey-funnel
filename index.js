@@ -265,13 +265,10 @@
   }
 
   function imageClickAlert(title, postage) {
-    alert(`
-      Congratulations! ${title} has been reserved for you! 
-
-      You have five minutes before we could offer it to the next qualified visitor!
-
-      On the next page, read the offer details, enter your postage address and pay a small postage fee($${postage})!
-    `)
+    offers.forEach(offer => {
+      const { title, postage } = offer;
+      console.log(title, postage)
+    })
   }
 
   function showNextQuestion(e) {
@@ -321,7 +318,6 @@
   const commentList = document.querySelector('.comment-list')
   const surveyMain = document.querySelector('.survey-main')
   const offerWall = document.querySelector('.offer-wall');
-
 
   date.forEach(div => {
     div.innerHTML = `${months[dateObj.getMonth()]} ${day}, ${year}`;
