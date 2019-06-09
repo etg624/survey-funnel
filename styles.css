@@ -544,6 +544,9 @@ h4 {
 
 
 @media(max-width: 450px) {
+  .thank-you-section {
+    justify-self: center;
+  }
   .text {
     line-height: 16px;
     font-size: 10px;
