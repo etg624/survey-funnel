@@ -83,7 +83,9 @@
       todaysPrice: '0.00',
       postage: '4.95',
       qtyLeft: '1',
-      usersClaimed: '7'
+      usersClaimed: '7',
+      numberOfVotes: '400',
+      isPopular: true
     },
     {
       imgUrl: 'https://d3e1y4kxkqljcb.cloudfront.net/survey_us_d/skincare_new_us.png',
@@ -93,7 +95,8 @@
       todaysPrice: '0.00',
       postage: '1.99',
       qtyLeft: '2',
-      usersClaimed: '23'
+      usersClaimed: '23',
+      numberOfVotes: '345'
     },
     {
       imgUrl: 'https://d3e1y4kxkqljcb.cloudfront.net/survey_us_d/flight_img.png',
@@ -103,60 +106,93 @@
       todaysPrice: '0.00',
       postage: '1.99',
       qtyLeft: '2',
-      usersClaimed: '23'
+      usersClaimed: '23',
+      numberOfVotes: '873',
+      someoneJustClaimed: true
     },
   ]
 
 
   const comments = [
     {
-      name: 'Mary Beal',
-      comment: 'Amazing!!!!!',
-      userImage: 'https://d3e1y4kxkqljcb.cloudfront.net/survey_us_d/css_sprites_comm.png'
-    }
+      name: 'Jerry Beal',
+      content: 'Good to give feedback and receive an offer. Good to give feedback and receive an offer.Good to give feedback and receive an offer.Good to give feedback and receive an offer.Good to give feedback and receive an offer.Good to give feedback and receive an offer.Good to give feedback and receive an offer.',
+      userImage: 'http://keenthemes.com/preview/metronic/theme/assets/pages/media/profile/profile_user.jpg',
+      date: 'June 8, 2019'
+    },
+    {
+      name: 'Claire Galway',
+      content: 'Good to give feedback and receive an offer.',
+      userImage: 'http://www.venmond.com/demo/vendroid/img/avatar/big.jpg',
+      date: 'June 8, 2019'
+
+    },
+    {
+      name: 'Jane Wentworth ',
+      content: 'My sunglasses actually came today. Not a bad deal at all!',
+      userImage: 'https://d3e1y4kxkqljcb.cloudfront.net/survey_us_d/user.jpg',
+      date: 'June 8, 2019'
+    },
   ]
 
-  function buildSurvey() {
-    // store the html in an array to join later.
-    const output = [];
-    const selectedAnswers = [];
-    questions.forEach((question, questionNumber) => {
-      const buttons = [];
+  // function buildSurvey() {
+  //   // store the html in an array to join later.
+  //   const output = [];
+  //   const selectedAnswers = [];
+  //   questions.forEach((question, questionNumber) => {
+  //     const buttons = [];
 
-      for (let choice of question.choices) {
-        buttons.push(
-          `
-      <button class="choice">
-         ${choice}
-      </button>`
-        );
-      }
+  //     for (let choice of question.choices) {
+  //       buttons.push(
+  //         `
+  //     <button class="choice">
+  //        ${choice}
+  //     </button>`
+  //       );
+  //     }
 
-      output.push(`
-        <div class="slide">
-        <p class="question-number"> Question
-          ${questionNumber + 1} of ${questions.length}
-          </p>
-          <h2 class="question">${question.question}</h2>
-          <div class="choices">${buttons.join('')}</div>
-        </div> 
-      `);
-    });
+  //     output.push(`
+  //       <div class="slide">
+  //       <p class="question-number"> Question
+  //         ${questionNumber + 1} of ${questions.length}
+  //         </p>
+  //         <h2 class="question">${question.question}</h2>
+  //         <div class="choices">${buttons.join('')}</div>
+  //       </div> 
+  //     `);
+  //   });
 
-    surveyContainer.innerHTML = output.join('');
-  }
+  //   surveyContainer.innerHTML = output.join('');
+  // }
 
   function buildOfferWall() {
     const output = [];
     offers.forEach(offer => {
-      const { imgUrl, title, description, postage, normalPrice, todaysPrice, qtyLeft, usersClaimed } = offer
+      const { imgUrl, title, description, postage, normalPrice, todaysPrice, qtyLeft, usersClaimed, numberOfVotes } = offer
       output.push(`
           <div class="offer-card"> 
-              <img src=${imgUrl} class="offer-image"/>
+
+          <div class="image-rating">
+            <img src=${imgUrl} class="offer-image"/>
+
+            <div class="ratings">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="number-of-votes bold">${numberOfVotes}</span>
+            </div>
+
+          </div>
+          
           <div class="desc-prices">
          
             <h4 class="offer-title bold">${title}</h4>
+            
             <p class="offer-desc">${description}</p>
+            
+            
         
             <p class="offer-normal price">
             Normal Price: <span class="line-through">$${normalPrice}</span>
@@ -182,31 +218,51 @@
   }
 
   function buildCommentSection() {
-
+    const output = []
+    let li;
+    let html;
+    comments.forEach(comment => {
+      const { name, content, userImage, date } = comment
+      li = document.createElement('li')
+      output.push(`
+       <article class="comment">
+         <div class="user-image">
+           <img class="user-image" src=${userImage} alt=${name} />
+         </div>
+        <div class="comment-data">
+        <p class="username-date"><span class="bold">${name}</span><span class="date">${date}</span></p>
+        
+        <p class="comment-content">${content}</p>
+        </div>
+        </article>
+     `)
+      li.innerHTML = output.join('')
+    })
+    commentList.appendChild(li)
   }
 
-  function showSlide(n) {
-    slides[currentSlide].classList.remove('active');
-    slides[n].classList.add('active');
-    currentSlide = n;
+  // function showSlide(n) {
+  //   slides[currentSlide].classList.remove('active');
+  //   slides[n].classList.add('active');
+  //   currentSlide = n;
 
-    if (currentSlide !== slides.length - 1) {
-      offerWallMain.style.opacity = '0'
-    }
+  //   if (currentSlide !== slides.length - 1) {
+  //     offerWallMain.style.opacity = '0'
+  //   }
 
-    if (currentSlide === 0) {
-      modal.style.display = 'block';
-      closeModal.addEventListener('click', () => {
-        modal.style.display = 'none';
-      });
-    }
+  //   if (currentSlide === 0) {
+  //     modal.style.display = 'block';
+  //     closeModal.addEventListener('click', () => {
+  //       modal.style.display = 'none';
+  //     });
+  //   }
 
-    if (currentSlide === slides.length - 1) {
-      surveyMain.innerHTML = ''
-      offerWallMain.style.opacity = '1'
-      buildOfferWall()
-    }
-  }
+  //   if (currentSlide === slides.length - 1) {
+  //     surveyMain.innerHTML = ''
+  //     offerWallMain.style.opacity = '1'
+  //     buildOfferWall()
+  //   }
+  // }
 
   function imageClickAlert(title, postage) {
     alert(`
@@ -224,9 +280,15 @@
   }
 
   const surveyContainer = document.getElementById('survey');
-  buildSurvey();
+  // buildSurvey();
   //TODO Move these constants down after offer wall is done
   const surveyMain = document.querySelector('.survey-main')
+  surveyMain.style.display = 'none'
+  const offerWall = document.querySelector('.offer-wall');
+  const comment = document.querySelector('.comment')
+  const commentList = document.querySelector('.comment-list')
+  buildOfferWall()
+  buildCommentSection()
 
 
   surveyContainer.addEventListener('click', () => showNextQuestion);
@@ -257,7 +319,8 @@
   const closeModal = document.querySelector('.modal-close');
   const offerWallMain = document.querySelector('.offer-wall-main');
   const commentSection = document.querySelector('.comment-section')
-  const offerWall = document.querySelector('.offer-wall');
+
+  // const offerWall = document.querySelector('.offer-wall');
 
 
   date.forEach(div => {
@@ -268,5 +331,5 @@
     choice.addEventListener('click', showNextQuestion);
   });
   let currentSlide = 0;
-  showSlide(0);
+  // showSlide(0);
 })();
