@@ -498,12 +498,29 @@ h4 {
 
 
 @media(max-width: 590px) {
+  .text {
+    line-height: 15px;
+    font-size: 10px;
+  }
+
+  .choice {
+    width: 50%;
+    padding: 8px 17px;
+    font-size: 12px;
+  }
+
+  .question {
+    font-size: 18px;
+  }
+
   .site-title h1 {
     font-size: 30px;
   }
+
   .check-img {
     height: 30px;
   }
+
   .congrats-section {
     width: 90%;
   }
@@ -544,13 +561,13 @@ h4 {
 
 
 @media(max-width: 450px) {
+  .operator {
+    height: 80px;
+  }
   .thank-you-section {
     justify-self: center;
   }
-  .text {
-    line-height: 16px;
-    font-size: 10px;
-  }
+ 
   .choice {
     width: 200px;
     font-size: 12px;
@@ -565,6 +582,9 @@ h4 {
 
 @media (max-width: 380px) {
 
+  .text {
+    line-height: 12px;
+  }
 
   .operator {
     height: 100px;
