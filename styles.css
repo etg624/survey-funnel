@@ -244,7 +244,7 @@ h1 {
   padding: 16px 35px;
   border-radius: 4px;
   background-color: rgb(66, 125, 165);
-  min-width: 300px;
+  width: 300px;
   font-size: 16px;
   font-weight: 400;
   color: white;
@@ -381,7 +381,7 @@ h4 {
   flex-direction: column;
   background-color: #f2f2f2;
   min-height: 200px;
-  width: 60%;
+  width: 55%;
   margin: 0 auto;
   border-radius: 6px;
 }
@@ -442,3 +442,148 @@ h4 {
   justify-self: start;
   line-height: 20px;
 }
+
+
+/* -----MOBILE----- */
+
+@media(max-width: 1310px) {
+  .operator {
+    height: 120px;
+  }
+
+  .offer-card {
+    width: 70%;
+  }
+
+  .comment-container {
+    width: 70%;
+  }
+}
+
+@media(max-width: 1020px) {
+  .offer-card {
+    width: 80%;
+  }
+
+  .comment-container {
+    width: 80%;
+  }
+}
+
+@media(max-width: 800px) {
+  .modal-content {
+    width: 80%;
+  }
+  .congrats-text {
+    font-size: 12px;
+  }
+  .text {
+    font-size: 12px;
+  }
+  .thank-you-section {
+    margin: 0 auto;
+    width: 90%;
+  }
+  .congrats-section {
+    margin: 15px auto;
+    width: 90%;
+  }
+  .comment-content {
+    font-size: 12px;
+  }
+  .offer-card {
+    width: 90%;
+  }
+}
+
+
+@media(max-width: 590px) {
+  .site-title h1 {
+    font-size: 30px;
+  }
+  .check-img {
+    height: 30px;
+  }
+  .congrats-section {
+    width: 90%;
+  }
+  .offer-card {
+    width: 90%;
+    height: 120px;
+  }
+  .offer-image {
+    height: 65%;
+  }
+  .offer-title { 
+    font-size: 10px;
+  }
+
+  .redeem-button {
+    padding: 5px;
+    font-size: 8px;
+  }
+  .claimed {
+    font-size: 8px;
+  }
+  .offer-desc {
+    font-size: 8px;
+    margin: 6px;
+  }
+  .desc-prices {
+    font-size: 8px;
+    margin: 0 0 6px 12px ;
+  }
+  .comment {
+    width: 95%;
+    margin: 10px auto;
+  }
+  .green {
+    font-size: 12px;
+  }
+}
+
+
+@media(max-width: 450px) {
+  .text {
+    line-height: 16px;
+    font-size: 10px;
+  }
+  .choice {
+    width: 200px;
+    font-size: 12px;
+  }
+  .survey-footer {
+    bottom: -460px;
+  }
+  .fine-print {
+    width: 80%;
+  }
+}
+
+@media (max-width: 380px) {
+
+
+  .operator {
+    height: 100px;
+  }
+  .operator-text {
+    font-size: 10px;
+  }
+  .offer-card {
+    height: 140px;
+  }
+  .offer-image {
+    height: 50%;
+  }
+
+  .thank-you-section {
+    margin-top: 10px;
+  }
+  .thank-you-section p {
+    font-size: 8px;
+  }
+  .thank-you-section span {
+    font-size: 10px;
+  }
+}
+
