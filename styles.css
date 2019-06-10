@@ -455,6 +455,14 @@ h4 {
 
 /* -----MOBILE----- */
 
+@media(max-width: 1500px) {
+  .offer-card {
+    width: 60%;
+  }
+  .comment-container {
+    width: 60%;
+  }
+}
 
 @media(max-width: 1310px) {
 

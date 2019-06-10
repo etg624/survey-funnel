@@ -207,7 +207,7 @@
             <p class="price"> Qty Left: ${qtyLeft} </p>
           </div>
           <div class="redeem">
-            <button class="redeem-button bold">Get My Reward</button>
+            <button class="redeem-button bold ">Get My Reward</button>
             <p class="claimed">${usersClaimed} users have chosen this reward</p>
           
           </div>
@@ -215,6 +215,10 @@
         `)
       offerWall.innerHTML = output.join('')
     })
+
+  }
+  function alertBtnClick(title, postage) {
+    alert(`${title} ${postage}`)
   }
 
   function buildCommentSection() {
@@ -318,7 +322,7 @@
   const commentList = document.querySelector('.comment-list')
   const surveyMain = document.querySelector('.survey-main')
   const offerWall = document.querySelector('.offer-wall');
-
+  const redeemBtns = document.querySelectorAll('.redeem-button')
   date.forEach(div => {
     div.innerHTML = `${months[dateObj.getMonth()]} ${day}, ${year}`;
   })
