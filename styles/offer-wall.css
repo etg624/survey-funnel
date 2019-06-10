@@ -1,0 +1,113 @@
+.thank-you-section {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.offer-card {
+  display: flex;
+  border: 0.5px solid rgb(218, 218, 218);
+  width: 55%;
+  margin: 0px auto 15px auto;
+  position: relative;
+  color: #444;
+  font-size: 12px;
+  width: 40%;
+}
+.image-rating {
+  align-self: center;
+  height: 95%;
+  width: 60%;
+}
+
+.number-of-votes {
+  margin-left: 6px;
+}
+
+.offer-image {
+  width: 100%;
+  height: 100%;
+  margin: 10px;
+  border: 1px solid rgb(218, 218, 218);
+}
+
+.checked {
+  color: orange;
+}
+
+.ratings {
+  display: flex;
+  align-self: flex-end;
+  justify-content: center;
+  margin-bottom: 3px;
+  height: 20px;
+}
+
+h4 {
+  font-size: 16px;
+  color: #444;
+}
+
+
+
+.desc-prices {
+  margin: 15px;
+  padding: 5px;
+  width: 100%
+}
+
+.offer-title {
+  margin-bottom: 5px;
+}
+
+.offer-desc {
+  margin: 10px 0;
+  color: #b1b1b1;
+  font-style: italic;
+  width: 100%;
+  font-size: 12px;
+}
+
+
+
+.price {
+  margin: 7px 0;
+}
+
+.green {
+  font-size: 16px;
+  color: #008000
+}
+
+.redeem {
+  align-self: flex-end;
+  width: 100%;
+  margin: 20px 10px;
+}
+
+.redeem-button {
+  background-color: rgb(66, 125, 165);
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border-radius: 3px;  
+  border: 1px solid #444;
+  font-size: 16px;
+}
+
+.redeem-button:hover {
+  cursor: pointer;
+  background-color: rgb(47, 88, 126)
+}
+
+.claimed {
+  margin-top: 5px;
+  color: #336f25;
+  text-align: center;
+  font-size: 12px;
+}
+
+.line-through {
+  text-decoration: line-through;
+}

@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css?family=Courgette');
+
+body {
+  font-family: Arial, Tahoma, sans-serif;
+}
+
+h1 {
+  font-family: 'Courgette', cursive;
+
+}
+
+.main-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.site-title {
+  display: flex;
+}
+
+.check-img {
+  height: 45px;
+}
+
+.main-header h1 {
+  font-size: 50px;
+  padding: 7px;
+  font-weight: 700;
+}
+
+.date-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 800;
+  background-color: #f2f2f2;
+  width: 100%;
+  text-align: center;
+  
+  margin-top: 5px;
+
+}
+
+.date-image {
+  height: 20px;
+  margin: 6px;
+}
+
+.main-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-links img {
+  width: 25px;
+  margin: 10px;
+}
+
+.lock {
+  width: 45px;
+}
+
+.fine-print {
+  margin: 13px;
+  font-size: 10px;
+  width: 50%;
+  color:#b1b1b1;
+}
+
+.survey-footer {
+  position: absolute;
+  bottom: -300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+/* -----MOBILE----- */
+
+
+@media(max-width: 1310px) {
+
+  .operator {
+    height: 120px;
+  }
+
+  .offer-card {
+    width: 70%;
+  }
+
+  .comment-container {
+    width: 70%;
+  }
+}
+
+@media(max-width: 1020px) {
+  .offer-card {
+    width: 80%;
+  }
+
+  .comment-container {
+    width: 80%;
+  }
+}
+
+@media(max-width: 800px) {
+  .modal-content {
+    width: 80%;
+  }
+  .congrats-text {
+    font-size: 12px;
+  }
+  .text {
+    font-size: 12px;
+  }
+  .thank-you-section {
+    margin: 0 auto;
+    width: 90%;
+  }
+  .congrats-section {
+    margin: 15px auto;
+    width: 90%;
+  }
+  .comment-content {
+    font-size: 12px;
+  }
+  .offer-card {
+    width: 90%;
+  }
+}
+
+
+@media(max-width: 590px) {
+  .text {
+    line-height: 15px;
+    font-size: 10px;
+  }
+
+  .choice {
+    width: 50%;
+    padding: 8px 17px;
+    font-size: 12px;
+  }
+
+  .question {
+    font-size: 18px;
+  }
+
+  .site-title h1 {
+    font-size: 30px;
+  }
+
+  .check-img {
+    height: 30px;
+  }
+
+  .congrats-section {
+    width: 90%;
+  }
+  .offer-card {
+    width: 90%;
+    height: 120px;
+  }
+  .offer-image {
+    height: 65%;
+  }
+  .offer-title { 
+    font-size: 10px;
+  }
+
+  .redeem-button {
+    padding: 5px;
+    font-size: 8px;
+  }
+  .claimed {
+    font-size: 8px;
+  }
+  .offer-desc {
+    font-size: 8px;
+    margin: 6px;
+  }
+  .desc-prices {
+    font-size: 8px;
+    margin: 0 0 6px 12px ;
+  }
+  .comment {
+    width: 95%;
+    margin: 10px auto;
+  }
+  .green {
+    font-size: 12px;
+  }
+}
+
+
+@media(max-width: 450px) {
+  .green {
+    font-size: 10px;
+  }
+
+  .operator {
+    height: 80px;
+  }
+  .thank-you-section {
+    justify-self: center;
+  }
+ 
+  .choice {
+    width: 200px;
+    font-size: 12px;
+  }
+  .survey-footer {
+    bottom: -460px;
+  }
+  .fine-print {
+    width: 80%;
+  }
+}
+
+@media (max-width: 380px) {
+
+  .text {
+    line-height: 12px;
+  }
+
+  .operator {
+    height: 100px;
+  }
+  .operator-text {
+    font-size: 10px;
+  }
+  .offer-card {
+    height: 140px;
+  }
+  .offer-image {
+    height: 50%;
+  }
+
+  .thank-you-section {
+    margin-top: 10px;
+  }
+  .thank-you-section p {
+    font-size: 8px;
+  }
+  .thank-you-section span {
+    font-size: 10px;
+  }
+}
+
